@@ -54,4 +54,8 @@ def self.change_all_invalid_emails_to_blank
 Customer.where("email != '' AND email IS NOT NULL and email NOT LIKE '%@%'").update_all(email: "")
 end
 
+def self.delete_meggie_herman
+  Customer.where(first: 'Meggie', last: 'Herman').delete_all
+end
+
 end
