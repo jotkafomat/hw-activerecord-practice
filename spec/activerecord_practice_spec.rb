@@ -36,17 +36,17 @@ describe 'ActiveRecord practice' do
       before(:each) do
         expect(Customer).to receive(:where).and_call_original
       end
-      xspecify 'anyone with first name Candice' do
+      specify 'anyone with first name Candice' do
         check Customer.any_candice, [24]
       end
-      xspecify 'with valid email (email addr contains "@") (HINT: look up SQL LIKE operator)' do
+      specify 'with valid email (email addr contains "@") (HINT: look up SQL LIKE operator)' do
         check Customer.with_valid_email, [1,2,4,5,7,8,10,11,12,13,14,15,17,18,19,20,23,26,29,30]
       end
-      xspecify 'with .org emails' do
-        check Customer.with_dot_org_email, [5,7,8,12,23,26,29] 
+      specify 'with .org emails' do
+        check Customer.with_dot_org_email, [5,7,8,12,23,26,29]
       end
-      xspecify 'with invalid but nonblank email (does not contain "@")' do
-        check Customer.with_invalid_email, [3,6,9,16,22,25,27,28] 
+      specify 'with invalid but nonblank email (does not contain "@")' do
+        check Customer.with_invalid_email, [3,6,9,16,22,25,27,28]
       end
       xspecify 'with blank email' do
         check  Customer.with_blank_email, [21,24]
@@ -63,7 +63,7 @@ describe 'ActiveRecord practice' do
     end
     describe 'without needing .where' do
       xspecify '20 youngest customers, in any order (hint: lookup ActiveRecord `order` and `limit`)' do
-        check Customer.twenty_youngest, [7,5,6,30,1,10,29,21,18,13,14,28,26,4,2,22,23,12,11,9] 
+        check Customer.twenty_youngest, [7,5,6,30,1,10,29,21,18,13,14,28,26,4,2,22,23,12,11,9]
       end
     end
   end
