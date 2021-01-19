@@ -42,4 +42,8 @@ def self.last_names_starting_with_b
   Customer.where("last LIKE 'B%'").order('birthdate')
 end
 
+def self.twenty_youngest
+  Customer.order("birthdate DESC").limit(20)
+end
+
 end
