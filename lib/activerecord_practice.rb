@@ -38,4 +38,8 @@ def self.with_valid_email_and_born_before_1980
   Customer.where("email LIKE '%@%' AND birthdate < '1980-01-01' ")
 end
 
+def self.last_names_starting_with_b
+  Customer.where("last LIKE 'B%'").order('birthdate')
+end
+
 end
