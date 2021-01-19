@@ -34,4 +34,8 @@ def self.born_before_1980
   Customer.where("birthdate < '1980-01-01'")
 end
 
+def self.with_valid_email_and_born_before_1980
+  Customer.where("email LIKE '%@%' AND birthdate < '1980-01-01' ")
+end
+
 end
