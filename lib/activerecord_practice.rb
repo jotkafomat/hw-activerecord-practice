@@ -53,6 +53,7 @@ def self.update_gussie_murray_birthdate
 end
 
 def self.change_all_invalid_emails_to_blank
+Customer.where("email != '' AND email IS NOT NULL and email NOT LIKE '%@%'").update_all(email: "")
 end
 
 end
