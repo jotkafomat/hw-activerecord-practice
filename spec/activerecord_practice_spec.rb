@@ -71,11 +71,11 @@ describe 'ActiveRecord practice' do
     before(:each) do
       expect(Customer).not_to receive(:find)
     end
-    xspecify 'the birthdate of Gussie Murray to February 8,2004 (HINT: lookup `Time.parse`)' do
+    specify 'the birthdate of Gussie Murray to February 8,2004 (HINT: lookup `Time.parse`)' do
       Customer.update_gussie_murray_birthdate
       expect(Customer.find_by(:first => 'Gussie').birthdate.to_date).to eq(Date.new 2004,2,8)
     end
-    xspecify 'all invalid emails to be blank' do
+    specify 'all invalid emails to be blank' do
       Customer.change_all_invalid_emails_to_blank
       expect(Customer.where("email != '' AND email IS NOT NULL and email NOT LIKE '%@%'").count).to be_zero
     end

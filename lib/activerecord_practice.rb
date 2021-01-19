@@ -46,4 +46,13 @@ def self.twenty_youngest
   Customer.order("birthdate DESC").limit(20)
 end
 
+def self.update_gussie_murray_birthdate
+  gussie = Customer.find_by(first: "Gussie", last: "Murray")
+  gussie.birthdate = "2004-02-08"
+  gussie.save
+end
+
+def self.change_all_invalid_emails_to_blank
+end
+
 end
