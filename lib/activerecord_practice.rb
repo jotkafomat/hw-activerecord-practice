@@ -24,7 +24,14 @@ class Customer < ActiveRecord::Base
   end
 
   def self.with_invalid_email
-    Customer.where("email NOT LIKE '%@%'") 
+    Customer.where("email NOT LIKE '%@%'")
   end
+  def self.with_blank_email
+  Customer.where("TRIM(email) IS NULL")
+end
+
+def self.born_before_1980
+  Customer.where("birthdate < '1980-01-01'")
+end
 
 end
