@@ -30,4 +30,8 @@ class Customer < ActiveRecord::Base
   Customer.where("TRIM(email) IS NULL")
 end
 
+def self.born_before_1980
+  Customer.where("birthdate < '1980-01-01'")
+end
+
 end
