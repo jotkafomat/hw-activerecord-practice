@@ -58,4 +58,8 @@ def self.delete_meggie_herman
   Customer.where(first: 'Meggie', last: 'Herman').delete_all
 end
 
+def self.delete_everyone_born_before_1978
+  Customer.where('birthdate < ?', Time.parse("1 January 1978")).delete_all
+end
+
 end
