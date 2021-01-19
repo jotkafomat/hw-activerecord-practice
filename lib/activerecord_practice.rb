@@ -47,9 +47,7 @@ def self.twenty_youngest
 end
 
 def self.update_gussie_murray_birthdate
-  gussie = Customer.find_by(first: "Gussie", last: "Murray")
-  gussie.birthdate = "2004-02-08"
-  gussie.save
+  Customer.where(first: "Gussie", last: "Murray").update(birthdate: "2004-02-08")
 end
 
 def self.change_all_invalid_emails_to_blank
